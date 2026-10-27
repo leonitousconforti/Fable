@@ -115,10 +115,12 @@ let raisedExceptionType (f: unit -> 'a): string =
         "no exception"
     with
     | :? ArgumentOutOfRangeException -> "ArgumentOutOfRangeException"
+    | :? ArgumentNullException -> "ArgumentNullException"
     | :? ArgumentException -> "ArgumentException"
     | :? InvalidOperationException -> "InvalidOperationException"
     | :? Collections.Generic.KeyNotFoundException -> "KeyNotFoundException"
     | :? NotSupportedException -> "NotSupportedException"
+    | :? FormatException -> "FormatException"
     | e -> "Unexpected exception: " + e.Message
 
 let rec sumFirstSeq (zs: seq<float>) (n: int): float =
