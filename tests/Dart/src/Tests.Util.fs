@@ -29,9 +29,11 @@ let raisedExceptionType (f: unit -> 'a): string =
         "no exception"
     with
     | :? System.ArgumentOutOfRangeException -> "ArgumentOutOfRangeException"
+    | :? System.ArgumentNullException -> "ArgumentNullException"
     | :? System.ArgumentException -> "ArgumentException"
     | :? System.InvalidOperationException -> "InvalidOperationException"
     | :? System.Collections.Generic.KeyNotFoundException -> "KeyNotFoundException"
+    | :? System.FormatException -> "FormatException"
     | e -> "Unexpected exception: " + e.Message
 
 let private run (f: unit -> 'a) =
